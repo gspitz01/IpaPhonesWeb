@@ -1,4 +1,6 @@
-# Ipa
+# IpaPhonesWeb
+
+An Angular for learning the International Phonetic Alphabet
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 

@@ -1,0 +1,21 @@
+ul {
+  list-style: none;
+  width: 400px;
+}
+
+ul li {
+  font-size: 1.2em;
+  display: inline-block;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+textarea {
+  font-size: 1.2em;
+  height: 20em;
+  width: 30em;
+}
+
+.hint {
+  height: 1.2em;
+}

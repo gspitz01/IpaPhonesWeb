@@ -1,0 +1,13 @@
+<h2>IPA Vowels Game</h2>
+<textarea ngx-auto-scroll class="messages" [innerHTML]="messages"></textarea>
+<div>
+  <button (click)="startRound()" [innerHTML]="buttonText" [disabled]="startRoundButtonDisabled()"></button>
+  <button (click)="replaySound()" [disabled]="replaySoundButtonDisabled">Replay Sound</button>
+</div>
+<div class="hint" [innerHTML]="hint"></div>
+<ul>
+  <li *ngFor="let vowel of vowels" (click)="makeGuess(vowel)" 
+      (mouseenter)="mouseEnter(vowel)"
+      (mouseleave)="mouseLeave(vowel)"
+      [innerHTML]="displayHex(vowel) | keepHtml"></li>
+</ul>
