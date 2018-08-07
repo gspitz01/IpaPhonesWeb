@@ -128,10 +128,15 @@ export class IpaPhonesGame {
    */
   chooseRandomPhoneForFile() {
     let phone = null;
+    let attempts = 0;
     while (!phone) {
       var randomPhone = this.phoneArray[Math.floor(Math.random() * this.phoneArray.length)];
       if (randomPhone.file) {
         phone = randomPhone;
+      }
+      attempts++;
+      if (attempts > this.phoneArray.length) {
+        return;
       }
     }
     this.currentPhone = phone;

@@ -5,16 +5,22 @@ import { NgxAutoScrollModule } from 'ngx-auto-scroll';
 import { AppComponent } from './app.component';
 import { VowelsComponent } from './vowels/vowels.component';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+import { ConsonantsComponent } from './consonants/consonants.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VowelsComponent,
-    EscapeHtmlPipe
+    EscapeHtmlPipe,
+    ConsonantsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    NgxAutoScrollModule
+    NgxAutoScrollModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

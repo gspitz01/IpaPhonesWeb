@@ -8,6 +8,9 @@ const soundsFolder = "../../assets/sounds/vowels/"
 const initialMessage = "Messages:\n";
 const startButtonText = "Start";
 const nextButtonText = "Next";
+const flatMap = (f,xs) =>
+  xs.reduce((acc,x) =>
+    acc.concat(f(x)), []);
 
 @Component({
   selector: 'app-vowels',
@@ -23,7 +26,7 @@ export class VowelsComponent implements OnInit {
   replaySoundButtonDisabled: boolean;
 
   constructor() {
-    this.vowelsGame = new IpaPhonesGame(this.vowels, soundsFolder);
+    this.vowelsGame = new IpaPhonesGame(flatMap(vowel => vowel, this.vowels), soundsFolder);
     this.messages = initialMessage;
     this.hint = "";
     this.buttonText = startButtonText;
