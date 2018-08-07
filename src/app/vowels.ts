@@ -2,56 +2,56 @@ import { IpaPhone } from './ipa-phone';
 
 export const VOWELS: IpaPhone[][] = [
   [
-    {decimal: "105", hex: "0069", description: "Close front unrounded", file: "Close_front_unrounded_vowel.ogg.mp3"},
-    {decimal: "121", hex: "0079", description: "Close front rounded", file: "Close_front_rounded_vowel.ogg.mp3"},
-    {decimal: "616", hex: "0268", description: "Close central unrounded", file: "Close_central_unrounded_vowel.ogg.mp3"},
-    {decimal: "649", hex: "0289", description: "Close central rounded", file: "Close_central_rounded_vowel.ogg.mp3"},
-    {decimal: "623", hex: "026F", description: "Close back unrounded", file: "Close_back_unrounded_vowel.ogg.mp3"},
-    {decimal: "117", hex: "0075", description: "Close back rounded", file: "Close_back_rounded_vowel.ogg.mp3"}
+    new IpaPhone("105", "0069", "Close front unrounded", "Close_front_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("121", "0079", "Close front rounded", "Close_front_rounded_vowel.ogg.mp3"),
+    new IpaPhone("616", "0268", "Close central unrounded", "Close_central_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("649", "0289", "Close central rounded", "Close_central_rounded_vowel.ogg.mp3"),
+    new IpaPhone("623", "026F", "Close back unrounded", "Close_back_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("117", "0075", "Close back rounded", "Close_back_rounded_vowel.ogg.mp3")
   ],
   [
-    {decimal: "73", hex: "0049", description: "Near close near front unrounded", file: "Near-close_near-front_unrounded_vowel.ogg.mp3"},
-    {decimal: "655", hex: "028F", description: "Near close near front rounded", file: "Near-close_near-front_rounded_vowel.ogg.mp3"},
-    {decimal: "618", hex: "026A", description: "Near close central unrounded", file: "Near-close_central_unrounded_vowel.ogg.mp3"},
-    {decimal: "650+776", hex: "028A+0308", description: "Near close central rounded", file: "Near-close_near-back_rounded_vowel.ogg.mp3"},
-    {decimal: "623+829", hex: "026F+033D", description: "Near close near back unrounded", file: null},
-    {decimal: "650", hex: "028A", description: "Near close near back rounded", file: null}
+    new IpaPhone("73", "0049", "Near close near front unrounded", "Near-close_near-front_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("655", "028F", "Near close near front rounded", "Near-close_near-front_rounded_vowel.ogg.mp3"),
+    new IpaPhone("618", "026A", "Near close central unrounded", "Near-close_central_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("650+776", "028A+0308", "Near close central rounded", "Near-close_near-back_rounded_vowel.ogg.mp3"),
+    new IpaPhone("623+829", "026F+033D", "Near close near back unrounded", null),
+    new IpaPhone("650", "028A", "Near close near back rounded", null)
   ],
   [
-    {decimal: "101", hex: "0065", description: "Close-mid front unrounded", file: "Close-mid_front_unrounded_vowel.ogg.mp3"},
-    {decimal: "248", hex: "00F8", description: "Close-mid front rounded", file: "Close-mid_front_rounded_vowel.ogg.mp3"},
-    {decimal: "600", hex: "0258", description: "Close-mid central unrounded", file: "Close-mid_central_unrounded_vowel.ogg.mp3"},
-    {decimal: "629", hex: "0275", description: "Close-mid central rounded", file: "Close-mid_central_rounded_vowel.ogg.mp3"},
-    {decimal: "612", hex: "0264", description: "Close-mid back unrounded", file: "Close-mid_back_unrounded_vowel.ogg.mp3"},
-    {decimal: "111", hex: "006F", description: "Close-mid back rounded", file: "Close-mid_back_rounded_vowel.ogg.mp3"}
+    new IpaPhone("101", "0065", "Close-mid front unrounded", "Close-mid_front_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("248", "00F8", "Close-mid front rounded", "Close-mid_front_rounded_vowel.ogg.mp3"),
+    new IpaPhone("600", "0258", "Close-mid central unrounded", "Close-mid_central_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("629", "0275", "Close-mid central rounded", "Close-mid_central_rounded_vowel.ogg.mp3"),
+    new IpaPhone("612", "0264", "Close-mid back unrounded", "Close-mid_back_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("111", "006F", "Close-mid back rounded", "Close-mid_back_rounded_vowel.ogg.mp3")
   ],
   [
-    {decimal: "101+798", hex: "0065+031E", description: "Mid front unrounded", file: "Mid_front_unrounded_vowel.ogg.mp3"},
-    {decimal: "248+798", hex: "00F8+031E", description: "Mid front rounded", file: null},
-    {decimal: "601", hex: "0259", description: "Mid central unrounded", file: "Mid-central_vowel.ogg.mp3"},
-    {decimal: "629+798", hex: "0275+031E", description: "Mid central rounded", file: null},
-    {decimal: "612+798", hex: "0264+031E", description: "Mid back unrounded", file: null},
-    {decimal: "111+798", hex: "006F+031E", description: "Mid back rounded", file: "Mid_back_rounded_vowel.ogg.mp3"}
+    new IpaPhone("101+798", "0065+031E", "Mid front unrounded", "Mid_front_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("248+798", "00F8+031E", "Mid front rounded", null),
+    new IpaPhone("601", "0259", "Mid central unrounded", "Mid-central_vowel.ogg.mp3"),
+    new IpaPhone("629+798", "0275+031E", "Mid central rounded", null),
+    new IpaPhone("612+798", "0264+031E", "Mid back unrounded", null),
+    new IpaPhone("111+798", "006F+031E", "Mid back rounded", "Mid_back_rounded_vowel.ogg.mp3")
   ],
   [
-    {decimal: "603", hex: "025B", description: "Open-mid front unrounded", file: "Open-mid_front_unrounded_vowel.ogg.mp3"},
-    {decimal: "339", hex: "0153", description: "Open-mid front rounded", file: "Open-mid_front_rounded_vowel.ogg.mp3"},
-    {decimal: "604", hex: "025C", description: "Open-mid central unrounded", file: "Open-mid_central_unrounded_vowel.ogg.mp3"},
-    {decimal: "606", hex: "025E", description: "Open-mid central rounded", file: "Open-mid_central_rounded_vowel.ogg.mp3"},
-    {decimal: "652", hex: "028C", description: "Open-mid back unrounded", file: "Open-mid_back_unrounded_vowel.ogg.mp3"},
-    {decimal: "596", hex: "0254", description: "Open-mid back rounded", file: "Open-mid_back_rounded_vowel.ogg.mp3"}
+    new IpaPhone("603", "025B", "Open-mid front unrounded", "Open-mid_front_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("339", "0153", "Open-mid front rounded", "Open-mid_front_rounded_vowel.ogg.mp3"),
+    new IpaPhone("604", "025C", "Open-mid central unrounded", "Open-mid_central_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("606", "025E", "Open-mid central rounded", "Open-mid_central_rounded_vowel.ogg.mp3"),
+    new IpaPhone("652", "028C", "Open-mid back unrounded", "Open-mid_back_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("596", "0254", "Open-mid back rounded", "Open-mid_back_rounded_vowel.ogg.mp3")
   ],
   [
-    {decimal: "230", hex: "00E6", description: "Near open front unrounded", file: "Near-open_front_unrounded_vowel.ogg.mp3"},
-    {decimal: "592", hex: "0250", description: "Near open central unrounded", file: "Near-open_central_unrounded_vowel.ogg.mp3"},
-    {decimal: "606+798", hex: "025E+031E", description: "Near open central rounded", file: null}
+    new IpaPhone("230", "00E6", "Near open front unrounded", "Near-open_front_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("592", "0250", "Near open central unrounded", "Near-open_central_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("606+798", "025E+031E", "Near open central rounded", null)
   ],
   [
-    {decimal: "97", hex: "0061", description: "Open front unrounded", file: "Open_front_unrounded_vowel.ogg.mp3"},
-    {decimal: "630", hex: "0276", description: "Open front rounded", file: "Open_front_rounded_vowel.ogg.mp3"},
-    {decimal: "97+776", hex: "0061+0308", description: "Open central unrounded", file: "Open_central_unrounded_vowel.ogg.mp3"},
-    {decimal: "594+776", hex: "0252+0308", description: "Open central rounded", file: null},
-    {decimal: "593", hex: "0251", description: "Open back unrounded", file: "Open_back_unrounded_vowel.ogg.mp3"},
-    {decimal: "594", hex: "0252", description: "Open back rounded", file: "Open_back_rounded_vowel.ogg.mp3"}
+    new IpaPhone("97", "0061", "Open front unrounded", "Open_front_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("630", "0276", "Open front rounded", "Open_front_rounded_vowel.ogg.mp3"),
+    new IpaPhone("97+776", "0061+0308", "Open central unrounded", "Open_central_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("594+776", "0252+0308", "Open central rounded", null),
+    new IpaPhone("593", "0251", "Open back unrounded", "Open_back_unrounded_vowel.ogg.mp3"),
+    new IpaPhone("594", "0252", "Open back rounded", "Open_back_rounded_vowel.ogg.mp3")
   ]
 ];

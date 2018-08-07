@@ -4,7 +4,7 @@ import { IpaPhone } from '../ipa-phone';
 import { IpaPhonesGame } from '../random-phone-game';
 import { VOWELS } from '../vowels';
 
-const soundsFolder = "../../assets/sounds/vowels/"
+const soundsFolder = "../../assets/sounds/vowels/";
 const initialMessage = "Messages:\n";
 const startButtonText = "Start";
 const nextButtonText = "Next";
@@ -50,15 +50,14 @@ export class VowelsComponent implements OnInit {
   }
   
   makeGuess(vowel: IpaPhone): void {
-    this.messages += IpaPhonesGame.symbolAndDescriptionString(vowel) + "\n";
+    this.messages += vowel.symbolAndDescriptionString() + "\n";
     if (!this.vowelsGame.nextEnabled) {
       this.messages += this.vowelsGame.makeGuess(vowel.description) + "\n";
     }
   }
   
   displayHex(vowel: IpaPhone): string {
-    let display = IpaPhonesGame.hexUtfToHtml(vowel);
-    return display;
+    return vowel.hexUtfToHtml();
   }
   
   mouseEnter(vowel: IpaPhone): void {

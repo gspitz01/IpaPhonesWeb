@@ -50,7 +50,7 @@ export class IpaPhonesGame {
    *
    * @return The stats in pretty format.
    */
-  getStats(): string {
+  private getStats(): string {
     return "You've gotten " + this.corrects + " right out of " + this.totalQuestions + ".\n" +
       "Your guess rate is " + (this.totalGuesses / this.totalQuestions).toFixed(2) + " guesses per question.\n";
   }
@@ -80,7 +80,7 @@ export class IpaPhonesGame {
    *
    * @return The display for that round.
    */
-  finishRound(): string {
+  private finishRound(): string {
     this.answered = true;
     this.nextEnabled = true;
     return this.getStats();
@@ -91,7 +91,7 @@ export class IpaPhonesGame {
    *
    * @return The display for that round.
    */
-  correctAnswer(): string {
+  private correctAnswer(): string {
     this.corrects++;
     this.guesses++;
     this.totalGuesses++;
@@ -103,11 +103,11 @@ export class IpaPhonesGame {
    *
    * @return The display for that guess.
    */
-  incorrectAnswer(): string {
+  private incorrectAnswer(): string {
     this.guesses++;
     this.totalGuesses++;
     if (this.guesses >= this.maxGuesses) {
-      return "Wrong! You've run out of guesses!\nIt was " + IpaPhonesGame.symbolAndDescriptionString(this.currentPhone) + "!\n" +
+      return "Wrong! You've run out of guesses!\nIt was " + this.currentPhone.symbolAndDescriptionString() + "!\n" +
           this.finishRound();
     }
     return "Incorrect.";
@@ -126,7 +126,7 @@ export class IpaPhonesGame {
   /**
    * Choose from a set of IPA phones. The choice must contain the name of a sound file.
    */
-  chooseRandomPhoneForFile() {
+  private chooseRandomPhoneForFile() {
     let phone = null;
     let attempts = 0;
     while (!phone) {
@@ -140,35 +140,5 @@ export class IpaPhonesGame {
       }
     }
     this.currentPhone = phone;
-  }
-  
-  /**
-   * Turns a UTF-8 hex character code into an HTML character.
-   *
-   * Accepts a single UTF-8 character which can be a character with a diacritic, with the codes connected by a '+'.
-   *
-   * @param before The IpaPhone to show
-   *
-   * @return {string} An HTML character.
-   */
-  static hexUtfToHtml(phone: IpaPhone) {
-    var htmlUtf8Prefix = "&#x";
-    var ipaChar = "";
-    if (phone.hex) {
-      var splitChar = phone.hex.split("+");
-      ipaChar = splitChar.map(singleChar => htmlUtf8Prefix + singleChar + ";").join("");
-    }
-    return ipaChar;
-  }
-
-  /**
-   * Extract the symbol and description of an IPA phone object, usually for display purposes.
-   *
-   * @param phone the IpaPhone which includes the hex value and description to be returned
-   *
-   * @return The HTML character and description of the IPA phone concatenated.
-   */
-  static symbolAndDescriptionString(phone: IpaPhone): string {
-    return IpaPhonesGame.hexUtfToHtml(phone) + " " + phone.description;
   }
 }
