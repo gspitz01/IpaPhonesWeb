@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IpaPhone } from '../ipa-phone';
-import { VOWELS } from '../vowels';
+import { VOWELS, VOWEL_GROUPS } from '../vowels';
 import { CONSONANTS } from '../consonants';
 
 const vowelSoundsFolder = "../../assets/sounds/vowels/";
@@ -18,6 +18,7 @@ const flatMap = (f,xs) =>
 export class ListenComponent implements OnInit {
   
   vowels = VOWELS;
+  vowelGroups = VOWEL_GROUPS;
   consonants = CONSONANTS;
   vowelDescription = "";
   consonantDescription = "";
@@ -26,7 +27,7 @@ export class ListenComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let flatVowels: IpaPhone[] = flatMap(vowel => vowel, this.vowels);
+    let flatVowels: IpaPhone[] = flatMap(vowel => flatMap(vow => vow, vowel), this.vowels);
     let flatConsonants: IpaPhone[] = flatMap(consonant => consonant, this.consonants);
     flatVowels.forEach(vowel => {
       if (vowel.file) {
@@ -67,6 +68,7 @@ export class ListenComponent implements OnInit {
   }
 
   playSound(phone: IpaPhone) {
+    console.log(phone);
     if (this.sounds[phone.hex]) {
       this.sounds[phone.hex].play();
     }

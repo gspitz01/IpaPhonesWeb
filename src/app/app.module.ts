@@ -9,6 +9,9 @@ import { ConsonantsComponent } from './consonants/consonants.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { ListenComponent } from './listen/listen.component';
+import { VowelsGameComponent } from './vowels-game/vowels-game.component';
+import { ConsonantsGameComponent } from './consonants-game/consonants-game.component';
+import { GameBoardComponent } from './game-board/game-board.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ListenComponent } from './listen/listen.component';
     EscapeHtmlPipe,
     ConsonantsComponent,
     HomeComponent,
-    ListenComponent
+    ListenComponent,
+    VowelsGameComponent,
+    ConsonantsGameComponent,
+    GameBoardComponent
   ],
   imports: [
     BrowserModule,

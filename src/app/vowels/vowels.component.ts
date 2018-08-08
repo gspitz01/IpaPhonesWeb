@@ -1,16 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 import { IpaPhone } from '../ipa-phone';
-import { IpaPhonesGame } from '../random-phone-game';
-import { VOWELS } from '../vowels';
-
-const soundsFolder = "../../assets/sounds/vowels/";
-const initialMessage = "Messages:\n";
-const startButtonText = "Start";
-const nextButtonText = "Next";
-const flatMap = (f,xs) =>
-  xs.reduce((acc,x) =>
-    acc.concat(f(x)), []);
+import { VOWELS, VOWEL_GROUPS } from '../vowels';
 
 @Component({
   selector: 'app-vowels',
@@ -18,42 +9,20 @@ const flatMap = (f,xs) =>
   styleUrls: ['./vowels.component.css']
 })
 export class VowelsComponent implements OnInit {
+  @Input() hint: string;
+  @Output() vowelClicked = new EventEmitter<IpaPhone>();
+  @Output() vowelEntered = new EventEmitter<IpaPhone>();
+  @Output() vowelLeft = new EventEmitter<IpaPhone>();
+  
   vowels = VOWELS;
-  vowelsGame: IpaPhonesGame;
-  messages: string;
-  hint: string;
+  vowelGroups = VOWEL_GROUPS;
   buttonText: string;
   replaySoundButtonDisabled: boolean;
 
   constructor() {
-    this.vowelsGame = new IpaPhonesGame(flatMap(vowel => vowel, this.vowels), soundsFolder);
-    this.messages = initialMessage;
-    this.hint = "";
-    this.buttonText = startButtonText;
-    this.replaySoundButtonDisabled = true;
   }
 
   ngOnInit() {
-  }
-  
-  startRound(): void {
-    this.messages = initialMessage;
-    this.vowelsGame.playRound();
-    this.buttonText = nextButtonText;
-    this.replaySoundButtonDisabled = false;
-  }
-  
-  replaySound(): void {
-    if (this.vowelsGame) {
-      this.vowelsGame.playSound();
-    }
-  }
-  
-  makeGuess(vowel: IpaPhone): void {
-    this.messages += vowel.symbolAndDescriptionString() + "\n";
-    if (!this.vowelsGame.nextEnabled) {
-      this.messages += this.vowelsGame.makeGuess(vowel.description) + "\n";
-    }
   }
   
   displayHex(vowel: IpaPhone): string {
@@ -61,18 +30,15 @@ export class VowelsComponent implements OnInit {
   }
   
   mouseEnter(vowel: IpaPhone): void {
-    this.hint = vowel.description;
+    this.vowelEntered.emit(vowel);
   }
   
   mouseLeave(vowel: IpaPhone): void {
-    this.hint = "";
+    this.vowelLeft.emit(vowel);
   }
-
-  startRoundButtonDisabled(): boolean {
-    if (this.vowelsGame) {
-      return !this.vowelsGame.nextEnabled;
-    }
-    return true;
+  
+  vowelClick(vowel: IpaPhone): void {
+    this.vowelClicked.emit(vowel);
   }
 
 }

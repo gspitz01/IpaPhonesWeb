@@ -1,0 +1,11 @@
+<h2>IPA Vowels Game</h2>
+<app-game-board (startButtonClicked)="startRound()"
+                (replayButtonClicked)="replaySound()"
+                [startButtonText]="buttonText"
+                [startRoundButtonDisabled]="startRoundButtonDisabled()"
+                [replaySoundButtonDisabled]="replaySoundButtonDisabled"
+                [messages]="messages"></app-game-board>
+<app-vowels (vowelClicked)="makeGuess($event)"
+            (vowelEntered)="mouseEnter($event)"
+            (vowelLeft)="mouseLeave($event)"
+            [hint]="hint"></app-vowels>

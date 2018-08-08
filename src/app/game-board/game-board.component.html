@@ -1,0 +1,5 @@
+<textarea ngx-auto-scroll class="messages" [innerHTML]="messages"></textarea>
+<div>
+  <button id="startRoundButton" (click)="startClicked()" [innerHTML]="startButtonText" [disabled]="startRoundButtonDisabled"></button>
+  <button id="replaySoundButton" (click)="replayClicked()" [disabled]="replaySoundButtonDisabled">Replay Sound</button>
+</div>

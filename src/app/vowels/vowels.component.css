@@ -1,22 +1,86 @@
 ul {
   list-style: none;
-  margin-top: 0;
+  margin: 0 auto;
+  margin-top: 0.6em;
+  padding-left: 0;
 }
 
 ul li {
-  font-size: 1.2em;
   display: inline-block;
-  margin: 0;
-  padding: 0 0.5em;
   cursor: pointer;
 }
 
-textarea {
+ul li.group-name {
+  font-size: 1em;
+  width: 30%;
+  text-align: right;
+  margin-right: 1.5em;
+}
+
+ul li.round-unround-group {
   font-size: 1.2em;
-  height: 20em;
-  width: 30em;
+  width: 15%;
+}
+
+ul li span {
+  padding: 0.4em;
+  color: #00bcd4;
+  border-radius: 3px;
+}
+
+ul li span:hover {
+  background: #008ba3;
+  color: white;
+}
+
+.vowel-titles {
+  margin: 0 auto;
+  padding-left: 9em;
+  width: 21em;
+}
+
+.vowel-titles span {
+  margin-right: 3.5em;
 }
 
 .hint {
+  text-align: center;
   height: 1.2em;
+}
+
+.vowels ul:nth-child(2) {
+  width: 36em;
+}
+
+.vowels ul:nth-child(3) {
+  width: 24em;
+}
+
+.vowels ul:nth-child(3) li.group-name {
+  width: 25%;
+  margin-right: 2em;
+}
+
+.vowels ul:nth-child(3) li.round-unround-group:nth-child(2) {
+  margin-right: 0.1em;
+}
+
+.vowels ul:nth-child(4) {
+  width: 32em;
+}
+
+.vowels ul:nth-child(5) {
+  width: 30em;
+}
+
+.vowels ul:nth-child(6) {
+  width: 28em;
+}
+
+.vowels ul:nth-child(7) {
+  width: 26em;
+}
+
+.vowels ul:nth-child(8) {
+  width: 24em;
 }

@@ -1,18 +1,8 @@
-<div class="hint" [innerHTML]="vowelDescription"></div>
-<div class="vowels">
-  <ul *ngFor="let vowelRow of vowels">
-    <li *ngFor="let vowel of vowelRow" (click)="playSound(vowel)" 
-        (mouseenter)="mouseEnterVowel(vowel)"
-        (mouseleave)="mouseLeaveVowel(vowel)"
-        [innerHTML]="displayHex(vowel) | keepHtml"></li>
-  </ul>
-</div>
-<div class="hint" [innerHTML]="consonantDescription"></div>
-<div class="consonants">
-  <ul *ngFor="let consonantRow of consonants">
-    <li *ngFor="let consonant of consonantRow" (click)="playSound(consonant)" 
-        (mouseenter)="mouseEnterConsonant(consonant)"
-        (mouseleave)="mouseLeaveConsonant(consonant)"
-        [innerHTML]="displayHex(consonant) | keepHtml"></li>
-  </ul>
-</div>
+<app-vowels (vowelClicked)="playSound($event)"
+            (vowelEntered)="mouseEnterVowel($event)"
+            (vowelLeft)="mouseLeaveVowel($event)"
+            [hint]="vowelDescription"></app-vowels>
+<app-consonants (consonantClicked)="playSound($event)"
+                (consonantEntered)="mouseEnterConsonant($event)"
+                (consonantLeft)="mouseLeaveConsonant($event)"
+                [hint]="consonantDescription"></app-consonants>

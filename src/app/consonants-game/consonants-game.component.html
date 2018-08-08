@@ -1,0 +1,11 @@
+<h2>IPA Consonants Game</h2>
+<app-game-board (startButtonClicked)="startRound()"
+                (replayButtonClicked)="replaySound()"
+                [startButtonText]="buttonText"
+                [startRoundButtonDisabled]="startRoundButtonDisabled()"
+                [replaySoundButtonDisabled]="replaySoundButtonDisabled"
+                [messages]="messages"></app-game-board>
+<app-consonants (consonantClicked)="makeGuess($event)"
+                (consonantEntered)="mouseEnter($event)"
+                (consonantLeft)="mouseLeave($event)"
+                [hint]="hint"></app-consonants>
