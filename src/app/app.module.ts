@@ -9,9 +9,10 @@ import { ConsonantsComponent } from './consonants/consonants.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { ListenComponent } from './listen/listen.component';
-import { VowelsGameComponent } from './vowels-game/vowels-game.component';
-import { ConsonantsGameComponent } from './consonants-game/consonants-game.component';
-import { GameBoardComponent } from './game-board/game-board.component';
+import { AdvancedVowelSoundsGameComponent } from './advanced-vowel-sounds-game/advanced-vowel-sounds-game.component';
+import { AdvancedConsonantSoundsGameComponent } from './advanced-consonant-sounds-game/advanced-consonant-sounds-game.component';
+import { SimpleVowelSymbolsGameComponent } from './simple-vowel-symbols-game/simple-vowel-symbols-game.component';
+import { SoundsGameBoardComponent } from './sounds-game-board/sounds-game-board.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { GameBoardComponent } from './game-board/game-board.component';
     ConsonantsComponent,
     HomeComponent,
     ListenComponent,
-    VowelsGameComponent,
-    ConsonantsGameComponent,
-    GameBoardComponent
+    AdvancedVowelSoundsGameComponent,
+    AdvancedConsonantSoundsGameComponent,
+    SimpleVowelSymbolsGameComponent,
+    SoundsGameBoardComponent
   ],
   imports: [
     BrowserModule,

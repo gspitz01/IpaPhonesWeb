@@ -8,9 +8,10 @@
   <ul *ngFor="let vowelRow of vowels; let i = index">
     <li class="group-name">{{vowelGroups[i]}}</li>
     <li *ngFor="let vowelGroup of vowelRow" class="round-unround-group">
-      <span *ngFor="let vowel of vowelGroup" (click)="vowelClick(vowel)" 
+      <span *ngFor="let vowel of vowelGroup" (click)="vowelClick(vowel)"
         (mouseenter)="mouseEnter(vowel)"
         (mouseleave)="mouseLeave(vowel)"
-        [innerHTML]="displayHex(vowel) | keepHtml"></span></li>
+        [innerHTML]="vowel.hexUtfToHtml() | keepHtml"
+        class="vowel"></span></li>
   </ul>
 </div>

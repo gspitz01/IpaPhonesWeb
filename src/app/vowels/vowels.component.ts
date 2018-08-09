@@ -25,10 +25,6 @@ export class VowelsComponent implements OnInit {
   ngOnInit() {
   }
   
-  displayHex(vowel: IpaPhone): string {
-    return vowel.hexUtfToHtml();
-  }
-  
   mouseEnter(vowel: IpaPhone): void {
     this.vowelEntered.emit(vowel);
   }

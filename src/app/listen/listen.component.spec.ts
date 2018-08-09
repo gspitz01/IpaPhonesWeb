@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EscapeHtmlPipe } from '../pipes/keep-html.pipe';
 import { ListenComponent } from './listen.component';
+import { VowelsComponent } from '../vowels/vowels.component';
+import { ConsonantsComponent } from '../consonants/consonants.component';
 
 describe('ListenComponent', () => {
   let component: ListenComponent;
@@ -11,6 +13,8 @@ describe('ListenComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ListenComponent,
+        VowelsComponent,
+        ConsonantsComponent,
         EscapeHtmlPipe
       ]
     })

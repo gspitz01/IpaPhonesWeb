@@ -3,11 +3,13 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { EscapeHtmlPipe } from '../pipes/keep-html.pipe';
-import { VowelsGameComponent } from './vowels-game.component';
+import { VowelsComponent } from '../vowels/vowels.component';
+import { SoundsGameBoardComponent } from '../sounds-game-board/sounds-game-board.component';
+import { AdvancedVowelSoundsGameComponent } from './advanced-vowel-sounds-game.component';
 
-describe('VowelsComponent', () => {
-  let component: VowelsGameComponent;
-  let fixture: ComponentFixture<VowelsGameComponent>;
+describe('AdvancedVowelSoundsGameComponent', () => {
+  let component: AdvancedVowelSoundsGameComponent;
+  let fixture: ComponentFixture<AdvancedVowelSoundsGameComponent>;
   let startRoundButton: DebugElement;
   let ipaCharListItem: DebugElement;
   let hintArea: DebugElement;
@@ -16,7 +18,9 @@ describe('VowelsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        AdvancedVowelSoundsGameComponent,
         VowelsComponent,
+        SoundsGameBoardComponent,
         EscapeHtmlPipe
       ]
     })
@@ -24,7 +28,7 @@ describe('VowelsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VowelsComponent);
+    fixture = TestBed.createComponent(AdvancedVowelSoundsGameComponent);
     component = fixture.componentInstance;
     startRoundButton = fixture.debugElement.query(By.css("#startRoundButton"));
     hintArea = fixture.debugElement.query(By.css(".hint"));
@@ -46,23 +50,5 @@ describe('VowelsComponent', () => {
     fixture.detectChanges();
     expect(startRoundButton.nativeElement.textContent).toBe("Next");
     expect(startRoundButton.nativeElement.disabled).toBeTruthy();
-  });
-  
-  it("mouseenter and mouseleave events in ipa char element show and remove description in hint area", () => {
-    let enterEvent = new Event('mouseenter');
-    let leaveEvent = new Event('mouseleave');
-    expect(hintArea.nativeElement.textContent).toBeFalsy();
-    ipaCharListItem.nativeElement.dispatchEvent(enterEvent);
-    fixture.detectChanges();
-    expect(hintArea.nativeElement.textContent).toBeTruthy();
-    ipaCharListItem.nativeElement.dispatchEvent(leaveEvent);
-    fixture.detectChanges();
-    expect(hintArea.nativeElement.textContent).toBeFalsy();
-  });
-  
-  it("click ipa char element shows that char in the messages area", () => {
-    ipaCharListItem.nativeElement.click();
-    fixture.detectChanges();
-    expect(messagesArea.nativeElement.textContent).toContain(ipaCharListItem.nativeElement.textContent);
   });
 });

@@ -3,11 +3,13 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { EscapeHtmlPipe } from '../pipes/keep-html.pipe';
-import { ConsonantsGameComponent } from './consonants-game.component';
+import { ConsonantsComponent } from '../consonants/consonants.component';
+import { SoundsGameBoardComponent } from '../sounds-game-board/sounds-game-board.component';
+import { AdvancedConsonantSoundsGameComponent } from './advanced-consonant-sounds-game.component';
 
-describe('ConsonantsComponent', () => {
-  let component: ConsonantsGameComponent;
-  let fixture: ComponentFixture<ConsonantsGameComponent>;
+describe('AdvancedConsonantSoundsGameComponent', () => {
+  let component: AdvancedConsonantSoundsGameComponent;
+  let fixture: ComponentFixture<AdvancedConsonantSoundsGameComponent>;
   let startRoundButton: DebugElement;
   let ipaCharListItem: DebugElement;
   let hintArea: DebugElement;
@@ -16,7 +18,9 @@ describe('ConsonantsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        AdvancedConsonantSoundsGameComponent,
         ConsonantsComponent,
+        SoundsGameBoardComponent,
         EscapeHtmlPipe
       ],
     })
@@ -24,7 +28,7 @@ describe('ConsonantsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConsonantsComponent);
+    fixture = TestBed.createComponent(AdvancedConsonantSoundsGameComponent);
     component = fixture.componentInstance;
     startRoundButton = fixture.debugElement.query(By.css("#startRoundButton"));
     hintArea = fixture.debugElement.query(By.css(".hint"));

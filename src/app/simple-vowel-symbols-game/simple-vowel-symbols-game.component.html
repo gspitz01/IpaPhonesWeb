@@ -1,0 +1,4 @@
+<h2>Simple Vowel Symbols Game</h2>
+<ul>
+  <li *ngFor="let vowel of vowels" [innerHTML]="vowel.hexUtfToHtml() | keepHtml"></li>
+</ul>

@@ -1,11 +1,11 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-game-board',
-  templateUrl: './game-board.component.html',
-  styleUrls: ['./game-board.component.css']
+  selector: 'app-sounds-game-board',
+  templateUrl: './sounds-game-board.component.html',
+  styleUrls: ['./sounds-game-board.component.css']
 })
-export class GameBoardComponent implements OnInit {
+export class SoundsGameBoardComponent implements OnInit {
   @Input() messages: string;
   @Input() startButtonText: string;
   @Input() startRoundButtonDisabled: boolean;

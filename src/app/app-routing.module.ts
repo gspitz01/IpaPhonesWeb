@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { VowelsGameComponent } from './vowels-game/vowels-game.component';
-import { ConsonantsGameComponent } from './consonants-game/consonants-game.component';
+import { AdvancedVowelSoundsGameComponent } from './advanced-vowel-sounds-game/advanced-vowel-sounds-game.component';
+import { AdvancedConsonantSoundsGameComponent } from './advanced-consonant-sounds-game/advanced-consonant-sounds-game.component';
+import { SimpleVowelSymbolsGameComponent } from './simple-vowel-symbols-game/simple-vowel-symbols-game.component';
 import { HomeComponent } from './home/home.component';
 import { ListenComponent } from './listen/listen.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'consonants-game', component: ConsonantsGameComponent },
+  { path: 'advanced-consonant-sounds-game', component: AdvancedConsonantSoundsGameComponent },
   { path: 'listen', component: ListenComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'vowels-game', component: VowelsGameComponent }
+  { path: 'advanced-vowel-sounds-game', component: AdvancedVowelSoundsGameComponent },
+  { path: 'simple-vowel-symbols-game', component: SimpleVowelSymbolsGameComponent }
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@
     <li *ngFor="let consonant of consonantRow" (click)="consonantClick(consonant)" 
         (mouseenter)="mouseEnter(consonant)"
         (mouseleave)="mouseLeave(consonant)"
-        [innerHTML]="displayHex(consonant) | keepHtml"></li>
+        [innerHTML]="consonant.hexUtfToHtml() | keepHtml"
+        class="consonant"></li>
   </ul>
 </div>

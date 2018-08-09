@@ -3,21 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { IpaPhone } from '../ipa-phone';
 import { IpaPhonesGame } from '../random-phone-game';
 import { VOWELS } from '../vowels';
+import { flatMap } from '../util-functions';
 
 const soundsFolder = "../../assets/sounds/vowels/";
 const initialMessage = "Messages:\n";
 const startButtonText = "Start";
 const nextButtonText = "Next";
-const flatMap = (f,xs) =>
-  xs.reduce((acc,x) =>
-    acc.concat(f(x)), []);
+
 
 @Component({
-  selector: 'app-vowels-game',
-  templateUrl: './vowels-game.component.html',
-  styleUrls: ['./vowels-game.component.css']
+  selector: 'app-advanced-vowel-sounds-game',
+  templateUrl: './advanced-vowel-sounds-game.component.html',
+  styleUrls: ['./advanced-vowel-sounds-game.component.css']
 })
-export class VowelsGameComponent implements OnInit {
+export class AdvancedVowelSoundsGameComponent implements OnInit {
   vowels = VOWELS;
   vowelsGame: IpaPhonesGame;
   messages: string;
@@ -54,10 +53,6 @@ export class VowelsGameComponent implements OnInit {
     if (!this.vowelsGame.nextEnabled) {
       this.messages += this.vowelsGame.makeGuess(vowel.description) + "\n";
     }
-  }
-  
-  displayHex(vowel: IpaPhone): string {
-    return vowel.hexUtfToHtml();
   }
   
   mouseEnter(vowel: IpaPhone): void {

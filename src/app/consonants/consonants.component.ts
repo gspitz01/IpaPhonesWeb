@@ -20,10 +20,6 @@ export class ConsonantsComponent implements OnInit {
 
   ngOnInit() {}
   
-  displayHex(consonant: IpaPhone): string {
-    return consonant.hexUtfToHtml();
-  }
-  
   mouseEnter(consonant: IpaPhone): void {
     this.consonantEntered.emit(consonant);
   }
