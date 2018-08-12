@@ -2,13 +2,19 @@ import { Component, OnInit } from '@angular/core';
 
 import { IpaPhone } from '../ipa-phone';
 import { IpaPhonesGame } from '../random-phone-game';
+import { IpaPhonesGameStats } from '../random-phone-game-stats';
 import { CONSONANTS } from '../consonants';
-import { flatMap } from '../util-functions';
+import { flatMap, updatePhonesGameStatsCookie, calculateStatsDelta } from '../util-functions';
+import { CONSONANT_PHONES_GAME_COOKIE_NAME, GAME_COOKIE_EXPIRE_DAYS } from '../constants';
+import { CookieService } from '../cookie.service';
 
 const soundsFolder = "../../assets/sounds/consonants/";
 const initialMessage = "Messages:\n";
 const startButtonText = "Start";
 const nextButtonText = "Next";
+
+const COOKIE_NAME = CONSONANT_PHONES_GAME_COOKIE_NAME;
+const COOKIE_EXPIRE_DAYS = GAME_COOKIE_EXPIRE_DAYS;
 
 @Component({
   selector: 'app-advanced-consonant-sounds-game',
@@ -22,35 +28,41 @@ export class AdvancedConsonantSoundsGameComponent implements OnInit {
   hint: string;
   buttonText: string;
   replaySoundButtonDisabled: boolean;
+  previousStats: IpaPhonesGameStats;
 
-  constructor() {
+  constructor(private cookieService: CookieService) {
     this.consonantsGame = new IpaPhonesGame(flatMap(consonant => consonant, this.consonants), soundsFolder);
     this.messages = initialMessage;
     this.hint = "";
     this.buttonText = startButtonText;
     this.replaySoundButtonDisabled = true;
+    this.previousStats = new IpaPhonesGameStats(0, 0, 0);
   }
 
   ngOnInit() {
   }
   
-  startRound(): void {
+  startRound() {
     this.messages = initialMessage;
     this.consonantsGame.playRound();
     this.buttonText = nextButtonText;
     this.replaySoundButtonDisabled = false;
   }
   
-  replaySound(): void {
+  replaySound() {
     if (this.consonantsGame) {
       this.consonantsGame.playSound();
     }
   }
   
-  makeGuess(consonant: IpaPhone): void {
+  makeGuess(consonant: IpaPhone) {
     this.messages += consonant.symbolAndDescriptionString() + "\n";
     if (!this.consonantsGame.nextEnabled) {
       this.messages += this.consonantsGame.makeGuess(consonant.description) + "\n";
+      const currentStats = this.consonantsGame.getStats();
+      updatePhonesGameStatsCookie(this.cookieService, COOKIE_NAME, COOKIE_EXPIRE_DAYS,
+                                 calculateStatsDelta(currentStats, this.previousStats));
+      this.previousStats = new IpaPhonesGameStats(currentStats.questions, currentStats.guesses, currentStats.corrects);
     }
   }
   

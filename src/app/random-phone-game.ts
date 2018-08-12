@@ -1,4 +1,5 @@
 import { IpaPhone } from './ipa-phone';
+import { IpaPhonesGameStats } from './random-phone-game-stats';
 
 // Phones in this case means sounds, not telephones
 export class IpaPhonesGame {
@@ -8,9 +9,7 @@ export class IpaPhonesGame {
   private sound: HTMLAudioElement;
   private answered: boolean;
   private guesses: number;
-  private totalGuesses: number;
-  private totalQuestions: number;
-  private corrects: number;
+  private stats: IpaPhonesGameStats;
   
   
   /**
@@ -23,9 +22,7 @@ export class IpaPhonesGame {
     this.sound = null;
     this.answered = false;
     this.guesses = 0;
-    this.totalGuesses = 0;
-    this.totalQuestions = 0;
-    this.corrects = 0;
+    this.stats = new IpaPhonesGameStats(0, 0, 0);
     this.nextEnabled = true;
   }
   
@@ -40,7 +37,7 @@ export class IpaPhonesGame {
     this.sound = new Audio(this.phonesFolder + this.currentPhone.file);
     this.answered = false;
     this.guesses = 0;
-    this.totalQuestions++;
+    this.stats.questions++;
     this.playSound();
     this.nextEnabled = false;
   }
@@ -50,9 +47,18 @@ export class IpaPhonesGame {
    *
    * @return The stats in pretty format.
    */
-  private getStats(): string {
-    return "You've gotten " + this.corrects + " right out of " + this.totalQuestions + ".\n" +
-      "Your guess rate is " + (this.totalGuesses / this.totalQuestions).toFixed(2) + " guesses per question.\n";
+  private getStatsPretty(): string {
+    return "You've gotten " + this.stats.corrects + " right out of " + this.stats.questions + ".\n" +
+      "Your guess rate is " + (this.stats.guesses / this.stats.questions).toFixed(2) + " guesses per question.\n";
+  }
+  
+  /**
+   * Get the stats of the game
+   *
+   * @return The stats as an IpaPhonesGameStats
+   */
+  getStats(): IpaPhonesGameStats {
+    return this.stats;
   }
   
   /**
@@ -83,7 +89,7 @@ export class IpaPhonesGame {
   private finishRound(): string {
     this.answered = true;
     this.nextEnabled = true;
-    return this.getStats();
+    return this.getStatsPretty();
   }
   
   /**
@@ -92,9 +98,9 @@ export class IpaPhonesGame {
    * @return The display for that round.
    */
   private correctAnswer(): string {
-    this.corrects++;
+    this.stats.corrects++;
     this.guesses++;
-    this.totalGuesses++;
+    this.stats.guesses++;
     return "Correct!\n" + this.finishRound();
   }
   
@@ -105,7 +111,7 @@ export class IpaPhonesGame {
    */
   private incorrectAnswer(): string {
     this.guesses++;
-    this.totalGuesses++;
+    this.stats.guesses++;
     if (this.guesses >= this.maxGuesses) {
       return "Wrong! You've run out of guesses!\nIt was " + this.currentPhone.symbolAndDescriptionString() + "!\n" +
           this.finishRound();

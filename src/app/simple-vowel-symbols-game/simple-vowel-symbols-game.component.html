@@ -1,4 +1,13 @@
 <h2>Simple Vowel Symbols Game</h2>
-<ul>
-  <li *ngFor="let vowel of vowels" [innerHTML]="vowel.hexUtfToHtml() | keepHtml"></li>
-</ul>
+<button (click)="startRound()" [disabled]="startButtonDisabled">{{startRoundButtonText}}</button>
+<div class="score">Score: <span>{{game.corrects}}</span>/<span>{{game.questions}}</span></div>
+<div *ngIf="currentRound" class="game-round">
+  <div class="question" [innerHTML]="currentRound.correct.hexUtfToHtml() | keepHtml"> </div>
+  <ul>
+    <li *ngFor="let vowel of possibleAnswers"
+        (click)="makeGuess(vowel)"
+        class="answer"
+        [innerHTML]="vowel.description | keepHtml"></li>
+  </ul>
+  <div class="messages">{{messages}}</div>
+</div>
