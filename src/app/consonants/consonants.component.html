@@ -1,10 +1,208 @@
 <div class="consonants">
   <div class="hint" [innerHTML]="hint"></div>
-  <ul *ngFor="let consonantRow of consonants">
-    <li *ngFor="let consonant of consonantRow" (click)="consonantClick(consonant)" 
-        (mouseenter)="mouseEnter(consonant)"
-        (mouseleave)="mouseLeave(consonant)"
-        [innerHTML]="consonant.hexUtfToHtml() | keepHtml"
-        class="consonant"></li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Manner/Place</th>
+        <th>Bilabial</th>
+        <th>Labio-dental</th>
+        <th>Linguo-labial</th>
+        <th>Dental</th>
+        <th>Alveolar</th>
+        <th>Post-aleolar</th>
+        <th>Retroflex</th>
+        <th>Palatal</th>
+        <th>Velar</th>
+        <th>Labialized velar</th>
+        <th>Uvular</th>
+        <th>Pharyngeal/Epiglottal</th>
+        <th>Glottal</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let consonantRow of consonants">
+      <td class="rowName">{{consonantRow.name}}</td>
+      <td class="bilabial">
+        <div  *ngIf="consonantRow.bilabial">
+          <span *ngIf="consonantRow.bilabial[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.bilabial[0])"
+                (mouseleave)="mouseLeave(consonantRow.bilabial[0])"
+                (click)="consonantClick(consonantRow.bilabial[0])"
+                [innerHTML]="consonantRow.bilabial[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.bilabial[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.bilabial[1])"
+                (mouseleave)="mouseLeave(consonantRow.bilabial[1])"
+                (click)="consonantClick(consonantRow.bilabial[1])"
+                [innerHTML]="consonantRow.bilabial[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="labio-dental">
+        <div *ngIf="consonantRow.labioDental">
+          <span *ngIf="consonantRow.labioDental[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.labioDental[0])"
+                (mouseleave)="mouseLeave(consonantRow.labioDental[0])"
+                (click)="consonantClick(consonantRow.labioDental[0])"
+                [innerHTML]="consonantRow.labioDental[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.labioDental[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.labioDental[1])"
+                (mouseleave)="mouseLeave(consonantRow.labioDental[1])"
+                (click)="consonantClick(consonantRow.labioDental[1])"
+                [innerHTML]="consonantRow.labioDental[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="linguo-labial">
+        <div *ngIf="consonantRow.linguoLabial">
+          <span *ngIf="consonantRow.linguoLabial[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.linguoLabial[0])"
+                (mouseleave)="mouseLeave(consonantRow.linguoLabial[0])"
+                (click)="consonantClick(consonantRow.linguoLabial[0])"
+                [innerHTML]="consonantRow.linguoLabial[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.linguoLabial[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.linguoLabial[1])"
+                (mouseleave)="mouseLeave(consonantRow.linguoLabial[1])"
+                (click)="consonantClick(consonantRow.linguoLabial[1])"
+                [innerHTML]="consonantRow.linguoLabial[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="dental">
+        <div *ngIf="consonantRow.dental">
+          <span *ngIf="consonantRow.dental[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.dental[0])"
+                (mouseleave)="mouseLeave(consonantRow.dental[0])"
+                (click)="consonantClick(consonantRow.dental[0])"
+                [innerHTML]="consonantRow.dental[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.dental[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.dental[1])"
+                (mouseleave)="mouseLeave(consonantRow.dental[1])"
+                (click)="consonantClick(consonantRow.dental[1])"
+                [innerHTML]="consonantRow.dental[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="alveolar">
+        <div *ngIf="consonantRow.alveolar">
+          <span *ngIf="consonantRow.alveolar[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.alveolar[0])"
+                (mouseleave)="mouseLeave(consonantRow.alveolar[0])"
+                (click)="consonantClick(consonantRow.alveolar[0])"
+                [innerHTML]="consonantRow.alveolar[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.alveolar[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.alveolar[1])"
+                (mouseleave)="mouseLeave(consonantRow.alveolar[1])"
+                (click)="consonantClick(consonantRow.alveolar[1])"
+                [innerHTML]="consonantRow.alveolar[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="post-alveolar">
+        <div *ngIf="consonantRow.postAlveolar">
+          <span *ngIf="consonantRow.postAlveolar[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.postAlveolar[0])"
+                (mouseleave)="mouseLeave(consonantRow.postAlveolar[0])"
+                (click)="consonantClick(consonantRow.postAlveolar[0])"
+                [innerHTML]="consonantRow.postAlveolar[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.postAlveolar[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.postAlveolar[1])"
+                (mouseleave)="mouseLeave(consonantRow.postAlveolar[1])"
+                (click)="consonantClick(consonantRow.postAlveolar[1])"
+                [innerHTML]="consonantRow.postAlveolar[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="retroflex">
+        <div *ngIf="consonantRow.retroflex">
+          <span *ngIf="consonantRow.retroflex[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.retroflex[0])"
+                (mouseleave)="mouseLeave(consonantRow.retroflex[0])"
+                (click)="consonantClick(consonantRow.retroflex[0])"
+                [innerHTML]="consonantRow.retroflex[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.retroflex[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.retroflex[1])"
+                (mouseleave)="mouseLeave(consonantRow.retroflex[1])"
+                (click)="consonantClick(consonantRow.retroflex[1])"
+                [innerHTML]="consonantRow.retroflex[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="palatal">
+        <div *ngIf="consonantRow.palatal">
+          <span *ngIf="consonantRow.palatal[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.palatal[0])"
+                (mouseleave)="mouseLeave(consonantRow.palatal[0])"
+                (click)="consonantClick(consonantRow.palatal[0])"
+                [innerHTML]="consonantRow.palatal[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.palatal[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.palatal[1])"
+                (mouseleave)="mouseLeave(consonantRow.palatal[1])"
+                (click)="consonantClick(consonantRow.palatal[1])"
+                [innerHTML]="consonantRow.palatal[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="velar">
+        <div *ngIf="consonantRow.velar">
+          <span *ngIf="consonantRow.velar[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.velar[0])"
+                (mouseleave)="mouseLeave(consonantRow.velar[0])"
+                (click)="consonantClick(consonantRow.velar[0])"
+                [innerHTML]="consonantRow.velar[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.velar[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.velar[1])"
+                (mouseleave)="mouseLeave(consonantRow.velar[1])"
+                (click)="consonantClick(consonantRow.velar[1])"
+                [innerHTML]="consonantRow.velar[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="labialized-velar">
+        <div *ngIf="consonantRow.labializedVelar">
+          <span *ngIf="consonantRow.labializedVelar[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.labializedVelar[0])"
+                (mouseleave)="mouseLeave(consonantRow.labializedVelar[0])"
+                (click)="consonantClick(consonantRow.labializedVelar[0])"
+                [innerHTML]="consonantRow.labializedVelar[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.labializedVelar[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.labializedVelar[1])"
+                (mouseleave)="mouseLeave(consonantRow.labializedVelar[1])"
+                (click)="consonantClick(consonantRow.labializedVelar[1])"
+                [innerHTML]="consonantRow.labializedVelar[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="uvular">
+        <div *ngIf="consonantRow.uvular">
+          <span *ngIf="consonantRow.uvular[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.uvular[0])"
+                (mouseleave)="mouseLeave(consonantRow.uvular[0])"
+                (click)="consonantClick(consonantRow.uvular[0])"
+                [innerHTML]="consonantRow.uvular[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.uvular[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.uvular[1])"
+                (mouseleave)="mouseLeave(consonantRow.uvular[1])"
+                (click)="consonantClick(consonantRow.uvular[1])"
+                [innerHTML]="consonantRow.uvular[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="pharyngeal">
+        <div *ngIf="consonantRow.pharyngeal">
+          <span *ngIf="consonantRow.pharyngeal[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.pharyngeal[0])"
+                (mouseleave)="mouseLeave(consonantRow.pharyngeal[0])"
+                (click)="consonantClick(consonantRow.pharyngeal[0])"
+                [innerHTML]="consonantRow.pharyngeal[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.pharyngeal[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.pharyngeal[1])"
+                (mouseleave)="mouseLeave(consonantRow.pharyngeal[1])"
+                (click)="consonantClick(consonantRow.pharyngeal[1])"
+                [innerHTML]="consonantRow.pharyngeal[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+      <td class="glottal">
+        <div *ngIf="consonantRow.glottal">
+          <span *ngIf="consonantRow.glottal[0]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.glottal[0])"
+                (mouseleave)="mouseLeave(consonantRow.glottal[0])"
+                (click)="consonantClick(consonantRow.glottal[0])"
+                [innerHTML]="consonantRow.glottal[0].hexUtfToHtml() | keepHtml"></span>
+          <span *ngIf="consonantRow.glottal[1]" class="consonant"
+                (mouseenter)="mouseEnter(consonantRow.glottal[1])"
+                (mouseleave)="mouseLeave(consonantRow.glottal[1])"
+                (click)="consonantClick(consonantRow.glottal[1])"
+                [innerHTML]="consonantRow.glottal[1].hexUtfToHtml() | keepHtml"></span>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>

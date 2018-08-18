@@ -1,8 +1,14 @@
-<app-vowels (vowelClicked)="playSound($event)"
-            (vowelEntered)="mouseEnterVowel($event)"
-            (vowelLeft)="mouseLeaveVowel($event)"
-            [hint]="vowelDescription"></app-vowels>
-<app-consonants (consonantClicked)="playSound($event)"
-                (consonantEntered)="mouseEnterConsonant($event)"
-                (consonantLeft)="mouseLeaveConsonant($event)"
-                [hint]="consonantDescription"></app-consonants>
+<section>
+  <header>Vowels</header>
+  <app-vowels (vowelClicked)="playSound($event)"
+              (vowelEntered)="mouseEnterVowel($event)"
+              (vowelLeft)="mouseLeaveVowel($event)"
+              [hint]="vowelDescription"></app-vowels>
+</section>
+<section>
+  <header>Consonants</header>
+  <app-consonants (consonantClicked)="playSound($event)"
+              (consonantEntered)="mouseEnterConsonant($event)"
+              (consonantLeft)="mouseLeaveConsonant($event)"
+              [hint]="consonantDescription"></app-consonants>
+</section>
