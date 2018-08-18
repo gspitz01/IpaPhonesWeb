@@ -44,43 +44,44 @@ ul li span:hover {
 }
 
 .hint {
+  margin: 0.4em 0;
   text-align: center;
   height: 1.2em;
 }
 
-.vowels ul:nth-child(2) {
+.vowels ul:nth-child(3) {
   width: 36em;
 }
 
-.vowels ul:nth-child(3) {
+.vowels ul:nth-child(4) {
   width: 24em;
 }
 
-.vowels ul:nth-child(3) li.group-name {
+.vowels ul:nth-child(4) li.group-name {
   width: 25%;
   margin-right: 2em;
 }
 
-.vowels ul:nth-child(3) li.round-unround-group:nth-child(2) {
+.vowels ul:nth-child(4) li.round-unround-group:nth-child(2) {
   margin-right: 0.1em;
 }
 
-.vowels ul:nth-child(4) {
+.vowels ul:nth-child(5) {
   width: 32em;
 }
 
-.vowels ul:nth-child(5) {
+.vowels ul:nth-child(6) {
   width: 30em;
 }
 
-.vowels ul:nth-child(6) {
+.vowels ul:nth-child(7) {
   width: 28em;
 }
 
-.vowels ul:nth-child(7) {
+.vowels ul:nth-child(8) {
   width: 26em;
 }
 
-.vowels ul:nth-child(8) {
+.vowels ul:nth-child(9) {
   width: 24em;
 }
