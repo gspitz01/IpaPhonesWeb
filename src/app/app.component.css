@@ -1,0 +1,24 @@
+footer {
+  width: 100%;
+  color: white;
+  background: #333;
+  margin-top: 3em;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer .content {
+  width: 80%;
+  margin: 0 auto;
+}
