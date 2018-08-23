@@ -7,6 +7,7 @@ import { CONSONANTS } from '../consonants';
 import { flatMap, updatePhonesGameStatsCookie, calculateStatsDelta } from '../util-functions';
 import { CONSONANT_PHONES_GAME_COOKIE_NAME, GAME_COOKIE_EXPIRE_DAYS } from '../constants';
 import { CookieService } from '../cookie.service';
+import { ConsonantRow } from '../consonant-row';
 
 const soundsFolder = "../../assets/sounds/consonants/";
 const initialMessage = "Messages:\n";
@@ -31,7 +32,7 @@ export class AdvancedConsonantSoundsGameComponent implements OnInit {
   previousStats: IpaPhonesGameStats;
 
   constructor(private cookieService: CookieService) {
-    this.consonantsGame = new IpaPhonesGame(flatMap(consonant => consonant, this.consonants), soundsFolder);
+    this.consonantsGame = new IpaPhonesGame(flatMap(consonantRow => consonantRow.asArray(), this.consonants), soundsFolder);
     this.messages = initialMessage;
     this.hint = "";
     this.buttonText = startButtonText;
@@ -41,20 +42,20 @@ export class AdvancedConsonantSoundsGameComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   startRound() {
     this.messages = initialMessage;
     this.consonantsGame.playRound();
     this.buttonText = nextButtonText;
     this.replaySoundButtonDisabled = false;
   }
-  
+
   replaySound() {
     if (this.consonantsGame) {
       this.consonantsGame.playSound();
     }
   }
-  
+
   makeGuess(consonant: IpaPhone) {
     this.messages += consonant.symbolAndDescriptionString() + "\n";
     if (!this.consonantsGame.nextEnabled) {
@@ -65,11 +66,11 @@ export class AdvancedConsonantSoundsGameComponent implements OnInit {
       this.previousStats = new IpaPhonesGameStats(currentStats.questions, currentStats.guesses, currentStats.corrects);
     }
   }
-  
+
   mouseEnter(consonant: IpaPhone): void {
     this.hint = consonant.description;
   }
-  
+
   mouseLeave(consonant: IpaPhone): void {
     this.hint = "";
   }

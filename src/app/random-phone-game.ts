@@ -3,15 +3,15 @@ import { IpaPhonesGameStats } from './random-phone-game-stats';
 
 // Phones in this case means sounds, not telephones
 export class IpaPhonesGame {
-  
+
   nextEnabled: boolean;
   private currentPhone: IpaPhone;
   private sound: HTMLAudioElement;
   private answered: boolean;
   private guesses: number;
   private stats: IpaPhonesGameStats;
-  
-  
+
+
   /**
    * @param phoneArray An array of sounds for the game to choose from.
    * @param phonesFolder The path of the folder containing the sound files.
@@ -25,7 +25,7 @@ export class IpaPhonesGame {
     this.stats = new IpaPhonesGameStats(0, 0, 0);
     this.nextEnabled = true;
   }
-  
+
   /**
    * Play a round of the random IPA Phone game.
    *
@@ -41,7 +41,7 @@ export class IpaPhonesGame {
     this.playSound();
     this.nextEnabled = false;
   }
-  
+
   /**
    * Show the statistics of the game
    *
@@ -51,7 +51,7 @@ export class IpaPhonesGame {
     return "You've gotten " + this.stats.corrects + " right out of " + this.stats.questions + ".\n" +
       "Your guess rate is " + (this.stats.guesses / this.stats.questions).toFixed(2) + " guesses per question.\n";
   }
-  
+
   /**
    * Get the stats of the game
    *
@@ -60,7 +60,7 @@ export class IpaPhonesGame {
   getStats(): IpaPhonesGameStats {
     return this.stats;
   }
-  
+
   /**
    * Make a guess in a round of the random IPA phone game.
    *
@@ -80,7 +80,7 @@ export class IpaPhonesGame {
     }
     return "";
   }
-  
+
   /**
    * Complete the round
    *
@@ -91,7 +91,7 @@ export class IpaPhonesGame {
     this.nextEnabled = true;
     return this.getStatsPretty();
   }
-  
+
   /**
    * A correct answer has been given
    *
@@ -103,7 +103,7 @@ export class IpaPhonesGame {
     this.stats.guesses++;
     return "Correct!\n" + this.finishRound();
   }
-  
+
   /**
    * An incorrect answer has been given
    *
@@ -118,8 +118,8 @@ export class IpaPhonesGame {
     }
     return "Incorrect.";
   }
-  
-  
+
+
   /**
    * Play the sound file
    */
@@ -128,7 +128,7 @@ export class IpaPhonesGame {
       this.sound.play();
     }
   }
-  
+
   /**
    * Choose from a set of IPA phones. The choice must contain the name of a sound file.
    */

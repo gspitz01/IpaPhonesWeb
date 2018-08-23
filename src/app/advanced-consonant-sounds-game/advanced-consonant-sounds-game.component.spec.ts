@@ -27,7 +27,7 @@ describe('AdvancedConsonantSoundsGameComponent', () => {
   let hintArea: DebugElement;
   let messagesArea: DebugElement;
   let cookieService: CookieService;
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -54,24 +54,26 @@ describe('AdvancedConsonantSoundsGameComponent', () => {
     messagesArea = fixture.debugElement.query(By.css(".messages"));
     cookieService = TestBed.get(CookieService);
     fixture.detectChanges();
-    ipaCharListItem = fixture.debugElement.query(By.css("li"));
+    ipaCharListItem = fixture.debugElement.query(By.css(".consonant"));
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it("startRoundButton should display 'Start'", () => {
     expect(startRoundButton.nativeElement.textContent).toBe("Start");
   });
-  
-  it("click startRoundButton makes it display 'Next' and be disabled", () => {
-    startRoundButton.nativeElement.click();
-    fixture.detectChanges();
-    expect(startRoundButton.nativeElement.textContent).toBe("Next");
-    expect(startRoundButton.nativeElement.disabled).toBeTruthy();
-  });
-  
+
+  it("click startRoundButton makes it display 'Next' and be disabled", async(() => {
+    fixture.whenStable().then(() => {
+      startRoundButton.nativeElement.click();
+      fixture.detectChanges();
+      expect(startRoundButton.nativeElement.textContent).toBe("Next");
+      expect(startRoundButton.nativeElement.disabled).toBeTruthy();
+    });
+  }));
+
   it("mouseenter and mouseleave events in ipa char element show and remove description in hint area", () => {
     let enterEvent = new Event('mouseenter');
     let leaveEvent = new Event('mouseleave');
@@ -83,13 +85,13 @@ describe('AdvancedConsonantSoundsGameComponent', () => {
     fixture.detectChanges();
     expect(hintArea.nativeElement.textContent).toBeFalsy();
   });
-  
+
   it("click ipa char element shows that char in the messages area", () => {
     ipaCharListItem.nativeElement.click();
     fixture.detectChanges();
     expect(messagesArea.nativeElement.textContent).toContain(ipaCharListItem.nativeElement.textContent);
   });
-  
+
   it("should create new cookie with stats on makeGuess", () => {
     spyOn(cookieService, 'getCookie').and.returnValue("");
     spyOn(cookieService, 'setCookie');
@@ -99,7 +101,7 @@ describe('AdvancedConsonantSoundsGameComponent', () => {
     expect(cookieService.getCookie).toHaveBeenCalled();
     expect(cookieService.setCookie).toHaveBeenCalledWith(COOKIE_NAME, "questions:1,guesses:1,corrects:0", COOKIE_EXPIRE_DAYS);
   });
-  
+
   it("should update cookie with stats on makeGuess", () => {
     spyOn(cookieService, 'getCookie').and.returnValue("questions:3,guesses:5,corrects:2");
     spyOn(cookieService, 'setCookie');
