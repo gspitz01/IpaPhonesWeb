@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  font-family: sans-serif;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -34,16 +33,6 @@ app-listen {
   align-items: center;
 }
 
-h1, h2, h3, h4, h5, h6, a {
-  font-family: sans-serif;
-}
-
-nav a {
-  text-decoration: none;
-  color: #ddf;
-  padding: 1em;
-}
-
-nav a:hover {
-  color: #44f;
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
 }

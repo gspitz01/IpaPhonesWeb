@@ -1,20 +1,39 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/home">Home</a>
-  <a routerLink="/listen">Listen</a>
-  <a routerLink="/advanced-vowel-sounds-game">Advanced Vowel Sounds Game</a>
-  <a routerLink="/advanced-consonant-sounds-game">Advanced Consonant Sounds Game</a>
-  <a routerLink="/simple-vowel-symbols-game">Simple Vowel Symbols Game</a>
-</nav>
-<router-outlet></router-outlet>
-<footer>
-  <div class="content">
-    <ul>
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/listen">Listen</a></li>
-      <li><a routerLink="/advanced-vowel-sounds-game">Advanced Vowel Sounds Game</a></li>
-      <li><a routerLink="/advanced-consonant-sounds-game">Advanced Consonant Sounds Game</a></li>
-      <li><a routerLink="/simple-vowel-symbols-game">Simple Vowel Symbols Game</a></li>
-    </ul>
+<div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">{{title}}</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a routerLink="/home" class="mdl-navigation__link">Home</a>
+        <a routerLink="/listen" class="mdl-navigation__link">Listen</a>
+        <a routerLink="/advanced-vowel-sounds-game" class="mdl-navigation__link">Advanced Vowel Sounds Game</a>
+        <a routerLink="/advanced-consonant-sounds-game" class="mdl-navigation__link">Advanced Consonant Sounds Game</a>
+        <a routerLink="/simple-vowel-symbols-game" class="mdl-navigation__link">Simple Vowel Symbols Game</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">{{title}}</span>
+    <nav class="mdl-navigation">
+      <a routerLink="/home" class="mdl-navigation__link">Home</a>
+      <a routerLink="/listen" class="mdl-navigation__link">Listen</a>
+      <a routerLink="/advanced-vowel-sounds-game" class="mdl-navigation__link">Advanced Vowel Sounds Game</a>
+      <a routerLink="/advanced-consonant-sounds-game" class="mdl-navigation__link">Advanced Consonant Sounds Game</a>
+      <a routerLink="/simple-vowel-symbols-game" class="mdl-navigation__link">Simple Vowel Symbols Game</a>
+    </nav>
   </div>
-</footer>
+  <main class="mdl-layout__content">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="mdl-mega-footer">
+    <div class="mdl-mega-footer__bottom-section">
+      <ul class="mdl-mega-footer__link-list">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/listen">Listen</a></li>
+        <li><a routerLink="/advanced-vowel-sounds-game">Advanced Vowel Sounds Game</a></li>
+        <li><a routerLink="/advanced-consonant-sounds-game">Advanced Consonant Sounds Game</a></li>
+        <li><a routerLink="/simple-vowel-symbols-game">Simple Vowel Symbols Game</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>

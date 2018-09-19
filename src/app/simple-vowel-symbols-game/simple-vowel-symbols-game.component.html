@@ -1,13 +1,16 @@
-<h2>Simple Vowel Symbols Game</h2>
-<button (click)="startRound()" [disabled]="startButtonDisabled">{{startRoundButtonText}}</button>
-<div class="score">Score: <span>{{game.corrects}}</span>/<span>{{game.questions}}</span></div>
+<h1>Simple Vowel Symbols Game</h1>
+<div class="controls">
+  <div class="score">Score: <span>{{game.corrects}}</span>/<span>{{game.questions}}</span></div>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+  (click)="startRound()" [disabled]="startButtonDisabled">{{startRoundButtonText}}</button>
+</div>
+<div class="messages">{{messages}}</div>
 <div *ngIf="currentRound" class="game-round">
-  <div class="question" [innerHTML]="currentRound.correct.hexUtfToHtml() | keepHtml"> </div>
-  <ul>
+  <div class="question" [innerHTML]="currentRound.correct.hexUtfToHtml() | keepHtml"></div>
+  <ul class="answer-list">
     <li *ngFor="let vowel of possibleAnswers"
         (click)="makeGuess(vowel)"
-        class="answer"
+        class="mdl-button mdl-js-button mdl-button--primary answer"
         [innerHTML]="vowel.description | keepHtml"></li>
   </ul>
-  <div class="messages">{{messages}}</div>
 </div>
