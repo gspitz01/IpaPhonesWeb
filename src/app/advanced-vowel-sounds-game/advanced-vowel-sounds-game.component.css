@@ -1,0 +1,4 @@
+.game-board-area {
+  display: flex;
+  justify-content: center;
+}

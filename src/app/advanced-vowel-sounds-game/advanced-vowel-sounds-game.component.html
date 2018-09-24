@@ -1,10 +1,12 @@
 <h1>Advanced Vowel Sounds Game</h1>
-<app-sounds-game-board (startButtonClicked)="startRound()"
-                (replayButtonClicked)="replaySound()"
-                [startButtonText]="buttonText"
-                [startRoundButtonDisabled]="startRoundButtonDisabled()"
-                [replaySoundButtonDisabled]="replaySoundButtonDisabled"
-                [messages]="messages"></app-sounds-game-board>
+<div class="game-board-area">
+  <app-sounds-game-board (startButtonClicked)="startRound()"
+                  (replayButtonClicked)="replaySound()"
+                  [startButtonText]="buttonText"
+                  [startRoundButtonDisabled]="startRoundButtonDisabled()"
+                  [replaySoundButtonDisabled]="replaySoundButtonDisabled"
+                  [messages]="messages"></app-sounds-game-board>
+</div>
 <app-vowels (vowelClicked)="makeGuess($event)"
             (vowelEntered)="mouseEnter($event)"
             (vowelLeft)="mouseLeave($event)"
