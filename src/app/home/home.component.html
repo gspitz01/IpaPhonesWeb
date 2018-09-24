@@ -1,10 +1,32 @@
 <h1>Home</h1>
 <h2>Your stats:</h2>
-<h3>Vowel Phones Game</h3>
-<p>Questions: {{vowelPhoneGameStats.questions}}</p>
-<p>Guesses: {{vowelPhoneGameStats.guesses}}</p>
-<p>Correct: {{vowelPhoneGameStats.corrects}}</p>
-<h3>Consonant Phones Game</h3>
-<p>Questions: {{consonantPhoneGameStats.questions}}</p>
-<p>Guesses: {{consonantPhoneGameStats.guesses}}</p>
-<p>Correct: {{consonantPhoneGameStats.corrects}}</p>
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Game</th>
+      <th>Questions</th>
+      <th>Guesses</th>
+      <th>Correct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Advanced Vowel Sounds Game</td>
+      <td>{{vowelPhoneGameStats.questions}}</td>
+      <td>{{vowelPhoneGameStats.guesses}}</td>
+      <td>{{vowelPhoneGameStats.corrects}}</td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Advanced Consonant Sounds Game</td>
+      <td>{{consonantPhoneGameStats.questions}}</td>
+      <td>{{consonantPhoneGameStats.guesses}}</td>
+      <td>{{consonantPhoneGameStats.corrects}}</td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Simple Vowel Symbols Game</td>
+      <td>FILL THIS IN!!</td>
+      <td>FILL THIS IN!!</td>
+      <td>FILL THIS IN!!</td>
+    </tr>
+  </tbody>
+</table>
