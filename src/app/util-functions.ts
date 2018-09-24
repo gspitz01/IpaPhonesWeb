@@ -1,6 +1,7 @@
 import { IpaPhone } from './ipa-phone';
 import { CookieService } from './cookie.service';
 import { IpaPhonesGameStats } from './random-phone-game-stats';
+import { IpaSymbolsGameStats } from './ipa-symbols-game-stats';
 
 export const flatMap = (f,xs) =>
   xs.reduce((acc,x) =>
@@ -10,7 +11,7 @@ export function shufflePhones(array: IpaPhone[]) {
   let i = 0,
       j = 0,
       temp = null;
-  
+
   for (i = array.length - 1; i > 0; i -= 1) {
     j = Math.floor(Math.random() * (i + 1));
     temp = array[i];
@@ -53,5 +54,16 @@ export function calculateStatsDelta(currentStats: IpaPhonesGameStats, previousSt
     return new IpaPhonesGameStats(currentStats.questions - previousStats.questions,
                                  currentStats.guesses - previousStats.guesses,
                                  currentStats.corrects - previousStats.corrects);
+}
+
+export function parseSymbolsGameStatsFromCookie(cookie: string): IpaSymbolsGameStats {
+  if (cookie === "") {
+    return new IpaSymbolsGameStats(0, 0);
+  } else {
+    const cookieCrumbles = cookie.split(",");
+    const questions = +cookieCrumbles[0].split(":")[1];
+    const corrects = +cookieCrumbles[1].split(":")[1];
+    return new IpaSymbolsGameStats(questions, corrects);
+  }
 }
 

@@ -3,7 +3,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { HomeComponent } from './home.component';
 import { CookieService } from '../cookie.service';
-import { VOWEL_PHONES_GAME_COOKIE_NAME, CONSONANT_PHONES_GAME_COOKIE_NAME, GAME_COOKIE_EXPIRE_DAYS } from '../constants';
+import { VOWEL_PHONES_GAME_COOKIE_NAME, CONSONANT_PHONES_GAME_COOKIE_NAME, VOWEL_SYMBOLS_GAME_COOKIE_NAME } from '../constants';
 
 
 describe('HomeComponent', () => {
@@ -36,8 +36,9 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
     expect(cookieServiceGetCookieSpy).toHaveBeenCalledWith(VOWEL_PHONES_GAME_COOKIE_NAME);
     expect(cookieServiceGetCookieSpy).toHaveBeenCalledWith(CONSONANT_PHONES_GAME_COOKIE_NAME);
+    expect(cookieServiceGetCookieSpy).toHaveBeenCalledWith(VOWEL_SYMBOLS_GAME_COOKIE_NAME);
   });
-  
+
   it("should get vowels game cookie from cookie service", () => {
   });
 });
