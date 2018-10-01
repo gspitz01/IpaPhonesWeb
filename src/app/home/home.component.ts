@@ -8,12 +8,12 @@ import { parsePhonesGameStatsFromCookie } from '../util-functions';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   vowelPhoneGameStats: IpaPhonesGameStats;
   consonantPhoneGameStats: IpaPhonesGameStats;
-  
+
   constructor(private cookieService: CookieService) {
     this.vowelPhoneGameStats = parsePhonesGameStatsFromCookie(this.cookieService.getCookie(VOWEL_PHONES_GAME_COOKIE_NAME));
     this.consonantPhoneGameStats = parsePhonesGameStatsFromCookie(this.cookieService.getCookie(CONSONANT_PHONES_GAME_COOKIE_NAME));

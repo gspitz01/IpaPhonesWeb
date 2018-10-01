@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxAutoScrollModule } from 'ngx-auto-scroll';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { VowelsComponent } from './vowels/vowels.component';
@@ -30,6 +31,7 @@ import { SoundsGameBoardComponent } from './sounds-game-board/sounds-game-board.
   imports: [
     BrowserModule,
     NgxAutoScrollModule,
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -6,14 +6,14 @@ import { VOWELS, VOWEL_GROUPS } from '../vowels';
 @Component({
   selector: 'app-vowels',
   templateUrl: './vowels.component.html',
-  styleUrls: ['./vowels.component.css']
+  styleUrls: ['./vowels.component.scss']
 })
 export class VowelsComponent implements OnInit {
   @Input() hint: string;
   @Output() vowelClicked = new EventEmitter<IpaPhone>();
   @Output() vowelEntered = new EventEmitter<IpaPhone>();
   @Output() vowelLeft = new EventEmitter<IpaPhone>();
-  
+
   vowels = VOWELS;
   vowelGroups = VOWEL_GROUPS;
   buttonText: string;
@@ -24,15 +24,15 @@ export class VowelsComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   mouseEnter(vowel: IpaPhone): void {
     this.vowelEntered.emit(vowel);
   }
-  
+
   mouseLeave(vowel: IpaPhone): void {
     this.vowelLeft.emit(vowel);
   }
-  
+
   vowelClick(vowel: IpaPhone): void {
     this.vowelClicked.emit(vowel);
   }

@@ -38,12 +38,14 @@ h1, h2, h3, h4, h5, h6, a {
   font-family: sans-serif;
 }
 
-nav a {
-  text-decoration: none;
-  color: #ddf;
-  padding: 1em;
-}
+nav {
+  a {
+    text-decoration: none;
+    color: #ddf;
+    padding: 1em;
 
-nav a:hover {
-  color: #44f;
+    &:hover {
+      color: #44f;
+    }
+  }
 }
