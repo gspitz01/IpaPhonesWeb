@@ -14,7 +14,7 @@ const flatMap = (f,xs) =>
 @Component({
   selector: 'app-listen',
   templateUrl: './listen.component.html',
-  styleUrls: ['./listen.component.css']
+  styleUrls: ['./listen.component.scss']
 })
 export class ListenComponent implements OnInit {
 

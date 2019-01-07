@@ -19,7 +19,7 @@ const COOKIE_EXPIRE_DAYS = GAME_COOKIE_EXPIRE_DAYS;
 @Component({
   selector: 'app-advanced-vowel-sounds-game',
   templateUrl: './advanced-vowel-sounds-game.component.html',
-  styleUrls: ['./advanced-vowel-sounds-game.component.css']
+  styleUrls: ['./advanced-vowel-sounds-game.component.scss']
 })
 export class AdvancedVowelSoundsGameComponent implements OnInit {
   vowels = VOWELS;
@@ -41,35 +41,35 @@ export class AdvancedVowelSoundsGameComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   startRound() {
     this.messages = initialMessage;
     this.vowelsGame.playRound();
     this.buttonText = nextButtonText;
     this.replaySoundButtonDisabled = false;
   }
-  
+
   replaySound() {
     if (this.vowelsGame) {
       this.vowelsGame.playSound();
     }
   }
-  
+
   makeGuess(vowel: IpaPhone) {
     this.messages += vowel.symbolAndDescriptionString() + "\n";
     if (!this.vowelsGame.nextEnabled) {
       this.messages += this.vowelsGame.makeGuess(vowel.description) + "\n";
       const currentStats = this.vowelsGame.getStats();
-      updatePhonesGameStatsCookie(this.cookieService, COOKIE_NAME, COOKIE_EXPIRE_DAYS, 
+      updatePhonesGameStatsCookie(this.cookieService, COOKIE_NAME, COOKIE_EXPIRE_DAYS,
                                   calculateStatsDelta(currentStats, this.previousStats));
       this.previousStats = new IpaPhonesGameStats(currentStats.questions, currentStats.guesses, currentStats.corrects);
     }
   }
-  
+
   mouseEnter(vowel: IpaPhone) {
     this.hint = vowel.description;
   }
-  
+
   mouseLeave(vowel: IpaPhone) {
     this.hint = "";
   }

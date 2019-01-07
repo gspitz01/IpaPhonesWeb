@@ -20,7 +20,7 @@ const COOKIE_EXPIRE_DAYS = GAME_COOKIE_EXPIRE_DAYS;
 @Component({
   selector: 'app-advanced-consonant-sounds-game',
   templateUrl: './advanced-consonant-sounds-game.component.html',
-  styleUrls: ['./advanced-consonant-sounds-game.component.css']
+  styleUrls: ['./advanced-consonant-sounds-game.component.scss']
 })
 export class AdvancedConsonantSoundsGameComponent implements OnInit {
   consonants = CONSONANTS;

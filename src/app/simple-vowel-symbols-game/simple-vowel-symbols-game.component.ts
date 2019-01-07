@@ -14,7 +14,7 @@ const nextButtonText = "Next";
 @Component({
   selector: 'app-simple-vowel-symbols-game',
   templateUrl: './simple-vowel-symbols-game.component.html',
-  styleUrls: ['./simple-vowel-symbols-game.component.css']
+  styleUrls: ['./simple-vowel-symbols-game.component.scss']
 })
 export class SimpleVowelSymbolsGameComponent implements OnInit {
   vowels: IpaPhone[];
@@ -32,7 +32,7 @@ export class SimpleVowelSymbolsGameComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   startRound() {
     this.currentRound = this.game.startRound();
     this.possibleAnswers = this.currentRound.wrong.slice(0);

@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  padding-top: 1em;
+  align-items: flex-end;
+}
+
+footer {
+  width: 100%;
+  color: white;
+  background: #333;
+  margin-top: 3em;
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: #999;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: white;
+  }
+
+  .content {
+    width: 80%;
+    margin: 0 auto;
+  }
+}

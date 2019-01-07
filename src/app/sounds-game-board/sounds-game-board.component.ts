@@ -3,7 +3,7 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-sounds-game-board',
   templateUrl: './sounds-game-board.component.html',
-  styleUrls: ['./sounds-game-board.component.css']
+  styleUrls: ['./sounds-game-board.component.scss']
 })
 export class SoundsGameBoardComponent implements OnInit {
   @Input() messages: string;
@@ -17,11 +17,11 @@ export class SoundsGameBoardComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   startClicked() {
     this.startButtonClicked.emit();
   }
-  
+
   replayClicked() {
     this.replayButtonClicked.emit();
   }
