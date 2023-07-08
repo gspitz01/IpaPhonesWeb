@@ -1,7 +1,7 @@
 <textarea ngx-auto-scroll class="messages" [innerHTML]="messages"></textarea>
 <div>
   <button id="startRoundButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-      (click)="startClicked()" [innerHTML]="startButtonText" [disabled]="startRoundButtonDisabled"></button>
+      (click)="startClicked()" [innerHTML]="startButtonText" [disabled]="startRoundButtonDisabled" mat-button></button>
   <button id="replaySoundButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-      (click)="replayClicked()" [disabled]="replaySoundButtonDisabled">Replay Sound</button>
+      (click)="replayClicked()" [disabled]="replaySoundButtonDisabled" mat-button>Replay Sound</button>
 </div>
